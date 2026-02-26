@@ -1,0 +1,23 @@
+<!-- disabled={{disableBtn}} interpolation -->
+<!-- [disabled]="disableBtn" property binding -->
+
+
+<p>binding works!</p>
+{{ name }}
+<div [style.color]="myColor" [style.fontSize]="'20px'">This text is styled with a dynamic color.</div>
+<div id={{myId}}>{{myId}}</div>
+<input type="text" name="" placeholder="please input1 " disabled={{disableBtn}} id="">
+<input type="text" name="" placeholder="please input2 "  id="">
+<input type="text" name="" placeholder="please input2 " [disabled]="disableBtn" id="">
+
+<button (click)="myFun()">Click me</button>
+
+<div [class.danger]="hasError" class="w-50 h-50">box</div>
+<div [ngClass]="myStyle">multiple class</div>
+<h1 [style.color]="hasError ? 'red' : 'black'">Style</h1>
+
+<div [ngStyle]="myNgStyle">Using multiple style</div>
+
+<button (click)="hasError=!hasError">change colorBox</button>
+
+<!-- TODO ngStyle ngModel ngClass ngIf ngFor ngSwitch ngTemplate ngContent -->

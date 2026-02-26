@@ -1,0 +1,15 @@
+.danger{
+ background-color: saddlebrown;   
+}
+.italic{
+ font-style: italic;
+}
+.bold{
+ font-weight: bold;
+}
+.fontStyle{
+ font-family: 'Courier New', Courier, monospace;
+}
+.bg-primary{
+ background-color: blue;
+}
