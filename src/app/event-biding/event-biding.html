@@ -1,0 +1,15 @@
+<div class="pt-[20px]">
+  <input type="text" name="" placeholder="input data" #myInput />
+  <button
+    class="bg-pink-400 text-white font-bold px-[20px] cursor-pointer rounded-[5px]"
+    (click)="myClick(myInput.value)"
+  >
+    click me
+  </button>
+  <div
+    class="bg-green-500 w-100 h-50 rounded-[20px] m-[20px] flex justify-center items-center flex-col"
+  >
+    <p class="text-white font-monospace font-bold">Hello {{ name }}</p>
+    <p class="text-white font-monospace font-bold">description {{ des }}</p>
+  </div>
+</div>
