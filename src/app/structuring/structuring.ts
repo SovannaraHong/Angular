@@ -8,10 +8,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './structuring.css',
 })
 export class Structuring {
+  list: string[] = ['Angular', 'React', 'Vue'];
   isMessage: boolean = true;
   text: string = 'Welcome to Cambodia';
   isLarge: boolean = true;
 
+  isOpen: boolean = true;
   get myStyle() {
     return {
       'w-200': this.isLarge,
@@ -20,6 +22,9 @@ export class Structuring {
       'bg-green-500': this.isLarge,
       'bg-red-500': !this.isLarge,
     };
+  }
+  toggleOpen() {
+    this.isOpen = !this.isOpen;
   }
 
   myFun() {

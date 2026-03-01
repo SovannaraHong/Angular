@@ -3,4 +3,48 @@
 <!-- <div app-binding></div> -->
 <!-- <app-event-biding></app-event-biding> -->
 <!-- <app-two-way-binding></app-two-way-binding> -->
-<app-structuring></app-structuring>
+<!-- <app-structuring></app-structuring> -->
+<h1 class="flex items-center justify-center text-white bg-green-500">Data from parent to child</h1>
+<div class="w-full bg-blue-200 h-100">
+  <app-input-output
+    (childEvent)="recivedMessage($event)"
+    [genderParent]="gender"
+    [parentData]="name"
+    [inputParent]="message"
+    [flexibleData]="flexibleData"
+  ></app-input-output>
+</div>
+
+<h1 class="flex items-center justify-center text-white bg-green-500">Data from child to parent</h1>
+<p>message from child ={{ dataFromChild }}</p>
+
+@for (item of listFromChild; track $index) {
+  <ul>
+    <li>{{ item }}</li>
+  </ul>
+}
+
+<h1 class="flex items-center justify-center text-white bg-green-500">
+  Using input data from parent to child
+</h1>
+<input class="border" type="text" placeholder="message" #inputMessage />
+<button
+  class="bg-green-400 px-[10px] py-[10px] rounded-[3px] mt-[5px]"
+  (click)="message = inputMessage.value"
+>
+  show message
+</button>
+
+<h1 class="flex items-center justify-center text-white bg-green-500 mt-[10px]">
+  input with function
+</h1>
+
+<input type="text" name="" placeholder="input data" id="" #data />
+<button (click)="addData(data.value)">click insert data</button>
+<p>show message data {{ dataMessage }}</p>
+
+<h1 class="flex items-center justify-center text-white bg-green-500 mt-[10px]">
+  input flexible data
+</h1>
+<input type="text" name="" placeholder="input data" id="" [(ngModel)]="flexibleData" />
+<p>show flexible data {{ flexibleData }}</p>

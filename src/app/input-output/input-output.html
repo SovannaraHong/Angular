@@ -1,0 +1,15 @@
+<p>Here is the data from parent: {{ parentData }}</p>
+<p>Gender from parent: {{ genderParent }}</p>
+<p>Input from parent: {{ inputParent }}</p>
+<button
+  class="bg-blue-400 px-[20px] py-2.5 rounded-[5px] text-white font-semibold"
+  (click)="sendMessage()"
+>
+  Send message to parent
+</button>
+
+<div class="flex items-center justify-center">
+  <h1 class="bg-pink-300 w-auto px-[10px] py-[10px] rounded-[4px]">
+    Message: {{ flexibleData | uppercase }}
+  </h1>
+</div>
