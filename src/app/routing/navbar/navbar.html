@@ -1,0 +1,69 @@
+<nav class="bg-white shadow-md fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <span class="text-2xl font-bold text-purple-600">Zendo</span>
+      </div>
+
+      <!-- Menu Links -->
+      <div class="hidden md:flex md:space-x-6 items-center">
+        <a
+          routerLink=""
+          routerLinkActive="text-purple-600"
+          class="text-gray-700 hover:text-purple-600 transition"
+          >Home</a
+        >
+        <a
+          routerLink="/list"
+          routerLinkActive="text-purple-600"
+          class="text-gray-700 hover:text-purple-600 transition"
+          >List</a
+        >
+        <a
+          routerLink="/detail"
+          routerLinkActive="text-purple-600"
+          class="text-gray-700 hover:text-purple-600 transition"
+          >Detail</a
+        >
+        <a href="#" class="text-gray-700 hover:text-purple-600 transition">Contact</a>
+      </div>
+
+      <!-- Button -->
+      <div class="hidden md:flex items-center">
+        <button
+          class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-500 transition"
+        >
+          Get Started
+        </button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex items-center md:hidden">
+        <button id="menu-btn" class="text-gray-700 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-purple-50">Home</a>
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-purple-50">About</a>
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-purple-50">Portfolio</a>
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-purple-50">Contact</a>
+    <button
+      class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg mt-2 hover:bg-purple-500 transition"
+    >
+      Get Started
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,44 @@
+@if (show) {
+  <p class="flex px-[20px] bg-pink-300 text-white font-bold justify-center items-center">
+    fetching fetch data from api
+  </p>
+
+  @for (item of listData; track $index) {
+    <ul>
+      <li>{{ $index + 1 }} {{ item }}</li>
+    </ul>
+  }
+
+  <div class="bg-green-300">
+    <div class="flex justify-center items-center flex-col gap-4">
+      <h1
+        class="flex justify-center items-center bg-blue-400 text-white px-[20px] py-[20px] rounded-[5px] font-bold text-[10px]"
+      >
+        Data from service
+      </h1>
+      <h1 class="flex justify-center items-center bg-blue-400 text-white">People Information</h1>
+    </div>
+    @for (person of people; track $index) {
+      <ul>
+        <li>Name: {{ person.name }}</li>
+        <li>Age: {{ person.age }}</li>
+        <li>Email: {{ person.email }}</li>
+      </ul>
+    }
+  </div>
+  <div>
+    <h1 class="flex justify-center items-center bg-blue-400 text-white">using json</h1>
+  </div>
+  @for (person of student; track $index) {
+    <div class="student-card">
+      <img [src]="'data/' + person.id + '.jpg'" alt="student photo" width="100" />
+
+      <ul>
+        <li>Name: {{ person.name }}</li>
+        <li>Age: {{ person.age }}</li>
+        <li>Email: {{ person.email }}</li>
+      </ul>
+    </div>
+  }
+}
+<button (click)="toggle()">Toggle</button>

@@ -2,15 +2,19 @@ import { Component, signal } from '@angular/core';
 
 import { InputOutput } from './input-output/input-output';
 import { FormsModule } from '@angular/forms';
+import { Fetching } from './fetching/fetching';
+import { RouterOutlet } from '@angular/router';
+import { Navbar } from './routing/navbar/navbar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule],
+  imports: [InputOutput, FormsModule, RouterOutlet, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
+  show: boolean = false;
   message: string = '';
   dataMessage: string = '';
   dataFromChild: string = '';
@@ -30,6 +34,10 @@ export class App {
     console.log(this.dataMessage);
   }
   flexibleData: string = '';
+
+  toggleShow() {
+    this.show = !this.show;
+  }
 
   protected readonly title = signal('phone-shop');
 }
