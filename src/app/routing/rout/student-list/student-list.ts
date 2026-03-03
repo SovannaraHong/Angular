@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { User } from '../../../service/user';
 
@@ -10,22 +10,16 @@ import { User } from '../../../service/user';
   styleUrls: ['./student-list.css'],
 })
 export class StudentList implements OnInit {
-  userList: any[] = [];
-  loading: boolean = true;
-
-  constructor(private userService: User) {}
-
+  productList: any[] = [];
+  constructor(
+    private userService: User,
+    private cd: ChangeDetectorRef,
+  ) {}
   ngOnInit(): void {
-    this.userService.getUsers().subscribe({
-      next: (data) => {
-        this.userList = data.users;
-        this.loading = false;
-        console.log('Users loaded ✅', this.userList);
-      },
-      error: (err) => {
-        console.error('API error', err);
-        this.loading = false;
-      },
+    this.userService.getProduct().subscribe((data) => {
+      this.productList = data.products;
+      console.log('Products loaded:', this.productList);
+      this.cd.detectChanges();
     });
   }
 }

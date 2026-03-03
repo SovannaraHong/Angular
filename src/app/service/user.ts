@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class User {
-  url: string = 'https://dummyjson.com/users';
+  url: string = 'https://dummyjson.com/products';
   constructor(private http: HttpClient) {}
-  getUsers(): Observable<any> {
+  getProduct(): Observable<any> {
     return this.http.get(this.url);
   }
 }

@@ -1,3 +1,8 @@
 <div class="pt-[100px] flex justify-center items-center">
   <h1 class="border-b font-bold uppercase">Student detail Page</h1>
 </div>
+
+@for (detail of listDetail; track detail.id) {
+  <p>{{ detail.title }}</p>
+  <img [src]="detail.thumbnail" alt="" />
+}
