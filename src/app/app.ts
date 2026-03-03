@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { Fetching } from './fetching/fetching';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './routing/navbar/navbar';
+import { Footer } from './routing/footer/footer';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule, RouterOutlet, Navbar],
+  imports: [InputOutput, FormsModule, RouterOutlet, Navbar, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

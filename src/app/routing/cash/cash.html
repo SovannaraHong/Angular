@@ -1,0 +1,103 @@
+<div
+  class="pt-[120px] min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 flex justify-center py-10 px-4"
+>
+  <div
+    class="max-w-6xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
+  >
+    <!-- Left: Product Image -->
+    <div class="lg:w-1/2 p-6 flex justify-center items-center">
+      <img
+        src="https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+        alt="Essence Mascara Lash Princess"
+        class="w-full h-auto rounded-2xl shadow-lg object-cover"
+      />
+    </div>
+
+    <!-- Right: Product Details -->
+    <div class="lg:w-1/2 p-8 space-y-6">
+      <!-- Title -->
+      <h1 class="text-3xl font-bold text-gray-800">Essence Mascara Lash Princess</h1>
+
+      <!-- Rating & Stock -->
+      <div class="flex justify-between items-center text-sm text-gray-600">
+        <div class="flex items-center space-x-1">
+          <span class="text-yellow-400">⭐</span>
+          <span>2.56 Rating</span>
+        </div>
+        <div class="text-green-600 font-semibold">In Stock (99)</div>
+      </div>
+
+      <!-- Price & Discount -->
+      <div class="flex items-center space-x-4">
+        <span class="text-2xl font-bold text-pink-600">$9.99</span>
+        <span class="text-gray-400 line-through text-sm"> $11.11 </span>
+        <span class="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">-10.48%</span>
+      </div>
+
+      <!-- Description -->
+      <p class="text-gray-500 leading-relaxed">
+        The Essence Mascara Lash Princess is a popular mascara known for its volumizing and
+        lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free
+        formula.
+      </p>
+
+      <!-- Options: Size & Color -->
+      <div class="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
+        <!-- Size -->
+        <div class="flex flex-col">
+          <label class="text-gray-700 text-sm mb-1">Size</label>
+          <select
+            class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-500"
+          >
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+        </div>
+
+        <!-- Color -->
+        <div class="flex flex-col">
+          <label class="text-gray-700 text-sm mb-1">Color</label>
+          <select
+            class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-pink-500"
+          >
+            <option>Black</option>
+            <option>Brown</option>
+            <option>Blue</option>
+          </select>
+        </div>
+
+        <!-- Quantity -->
+        <div class="flex flex-col">
+          <label class="text-gray-700 text-sm mb-1">Quantity</label>
+          <input
+            type="number"
+            min="1"
+            value="1"
+            class="w-24 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-pink-500"
+          />
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex space-x-4">
+        <button
+          class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300"
+        >
+          Add to Cart
+        </button>
+        <button
+          class="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300"
+        >
+          Pay Now
+        </button>
+      </div>
+
+      <!-- Extra Info -->
+      <div class="pt-4 border-t border-gray-200 text-gray-600 text-sm">
+        Category: Beauty <br />
+        SKU: 001
+      </div>
+    </div>
+  </div>
+</div>

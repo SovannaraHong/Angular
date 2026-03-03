@@ -1,0 +1,65 @@
+<div class="pt-[140px]">
+  <h1 class="text-center font-bold text-2xl uppercase">This is product</h1>
+</div>
+
+<div class="grid grid-cols-4 gap-[20px] p-[30px]">
+  <div *ngFor="let product of productList$ | async; let i = index">
+    <div
+      class="max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden hover:scale-105 transition duration-500"
+    >
+      <!-- Image -->
+      <div class="relative">
+        <img
+          [routerLink]="['/productDetail', product.id]"
+          [src]="product.thumbnail"
+          alt="{{ product.title }}"
+          class="cursor-pointer w-full h-60 object-cover"
+        />
+
+        <!-- Discount Badge -->
+        <span
+          class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md"
+        >
+          {{ product.discountPercentage }}%
+        </span>
+
+        <!-- Category Badge -->
+        <span
+          class="absolute top-4 right-4 bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+        >
+          {{ product.category }}
+        </span>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6">
+        <!-- Title -->
+        <h2 class="text-xl font-bold text-gray-800 line-clamp-1 mb-2">{{ product.title }}</h2>
+
+        <!-- Description -->
+        <p class="text-gray-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+          {{ product.description }}
+        </p>
+
+        <!-- Rating & Stock -->
+        <div class="flex justify-between items-center mb-4">
+          <div class="text-yellow-400 text-sm">⭐ {{ product.rating }}</div>
+          <div class="text-green-600 text-sm font-semibold">{{ product.stock }}</div>
+        </div>
+
+        <!-- Price Section -->
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-2xl font-bold text-pink-600">${{ product.price }}</span>
+          </div>
+
+          <button
+            class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-5 py-2 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
