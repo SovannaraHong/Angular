@@ -6,11 +6,13 @@ import { Fetching } from './fetching/fetching';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './routing/navbar/navbar';
 import { Footer } from './routing/footer/footer';
+import { Employee } from './employeeDashBoard/employee/employee';
+import { NavbarEmployee } from './employeeDashBoard/navbar-employee/navbar-employee';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule, RouterOutlet, Navbar, Footer],
+  imports: [InputOutput, FormsModule, RouterOutlet, NavbarEmployee],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

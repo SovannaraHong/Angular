@@ -1,0 +1,119 @@
+<div class="pt-[120px] px-[20px]">
+  @if (employeeList$ | async; as employeeList) {
+    <div class="grid grid-cols-4 gap-[20px]">
+      @for (emp of employeeList; track $index) {
+        <div
+          class="w-full max-w-sm bg-gray-900 border border-gray-700 rounded-2xl overflow-hidden shadow-2xl shadow-black/60"
+        >
+          <!-- Top accent strip -->
+          <div class="h-1.5 bg-emerald-500"></div>
+
+          <div class="p-6">
+            <!-- Avatar + Identity -->
+            <div class="flex gap-4 items-center mb-5">
+              <div class="relative flex-shrink-0">
+                <img
+                  [src]="emp.avatar_url"
+                  alt="github"
+                  class="w-16 h-16 rounded-xl border-2 border-gray-700 object-cover"
+                />
+                <!-- Type badge -->
+                <span
+                  class="absolute -bottom-2 -right-2 text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-900 text-emerald-300 border border-emerald-700 tracking-widest uppercase whitespace-nowrap"
+                >
+                  {{ emp.login }}
+                </span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h2 class="text-lg font-bold text-white leading-tight truncate">
+                  {{ emp.node_id }}
+                </h2>
+                <p class="text-sky-400 text-sm truncate">{{ emp.type }}</p>
+                <!-- ID -->
+                <div
+                  class="flex items-center gap-2 mt-2 bg-gray-800 border border-gray-700 rounded-lg px-2.5 py-1 w-fit"
+                >
+                  <span class="text-gray-500 text-[10px] uppercase tracking-widest font-bold"
+                    >ID</span
+                  >
+                  <span class="text-emerald-400 text-xs font-bold">{{ emp.id }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="bg-gray-800 border-l-2 border-emerald-500 rounded-lg px-3 py-2.5 mb-5">
+              <p class="text-gray-400 text-xs leading-relaxed italic">How people build software.</p>
+            </div>
+
+            <!-- Stats -->
+            <div
+              class="grid grid-cols-3 divide-x divide-gray-700 border border-gray-700 rounded-xl mb-5 overflow-hidden"
+            >
+              <div class="py-3 text-center">
+                <div class="text-xl font-bold text-white">438</div>
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-0.5">Repos</div>
+              </div>
+              <div class="py-3 text-center">
+                <div class="text-xl font-bold text-white">17.4k</div>
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-0.5">
+                  Followers
+                </div>
+              </div>
+              <div class="py-3 text-center">
+                <div class="text-xl font-bold text-white">12</div>
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-0.5">
+                  Following
+                </div>
+              </div>
+            </div>
+
+            <!-- Info Grid -->
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <div class="bg-gray-800 rounded-xl px-3 py-2.5 border border-gray-700">
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">
+                  📍 Location
+                </div>
+                <div class="text-xs text-white truncate">San Francisco, CA</div>
+              </div>
+              <div class="bg-gray-800 rounded-xl px-3 py-2.5 border border-gray-700">
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">
+                  🏢 Company
+                </div>
+                <div class="text-xs text-white truncate">GitHub, Inc.</div>
+              </div>
+              <div class="bg-gray-800 rounded-xl px-3 py-2.5 border border-gray-700">
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">🔗 Blog</div>
+                <div class="text-xs text-sky-400 truncate">github.blog</div>
+              </div>
+              <div class="bg-gray-800 rounded-xl px-3 py-2.5 border border-gray-700">
+                <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">
+                  🐦 Twitter
+                </div>
+                <div class="text-xs text-sky-400 truncate">@github</div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+              <div class="text-[11px] text-gray-500">
+                Joined <span class="text-gray-300">Jan 2008</span>
+              </div>
+              <a
+                [routerLink]="['/employeeDetail', emp.id]"
+                class="flex items-center cursor-pointer gap-2 bg-gray-800 hover:bg-gray-700 text-white text-xs font-bold px-4 py-2 rounded-lg border border-gray-600 transition-colors duration-150"
+              >
+                <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                View Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

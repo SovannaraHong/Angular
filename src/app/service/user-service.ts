@@ -12,7 +12,7 @@ export interface UserType {
   phone: string;
   image: string;
 }
-export interface UserResponse {
+export interface userResponse {
   users: UserType[];
   total: number;
   skip: number;
@@ -25,6 +25,6 @@ export class UserService {
   url: string = 'https://dummyjson.com/users';
   constructor(private http: HttpClient) {}
   getUsers(): Observable<UserType[]> {
-    return this.http.get<UserResponse>(this.url).pipe(map((response) => response.users));
+    return this.http.get<userResponse>(this.url).pipe(map((response) => response.users));
   }
 }

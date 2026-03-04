@@ -1,0 +1,11 @@
+<div class="pt-[140px]">
+  <h1 class="text-center font-bold text-2xl uppercase">This is admin</h1>
+</div>
+@if (adminList$ | async; as adminList) {
+  <div>
+    <h1>hello</h1>
+    @for (user of adminList; track $index) {
+      <h1>{{ user.name }}</h1>
+    }
+  </div>
+}
