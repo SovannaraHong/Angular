@@ -1,0 +1,50 @@
+<form action="" class="grid grid-cols-2 px-[20px] w-fit pt-[20px] gap-5" #formInput="ngForm">
+  <input class="border" name="name" type="text" placeholder="name" [(ngModel)]="student.name" />
+  <input class="border" name="phone" type="text" placeholder="phone" [(ngModel)]="student.phone" />
+  <input class="border" name="email" type="text" placeholder="email" [(ngModel)]="student.email" />
+  <div ngModelGroup="address">
+    <input
+      class="border"
+      name="province"
+      type="text"
+      placeholder="province"
+      [(ngModel)]="student.province"
+    />
+    <input
+      class="border"
+      name="discrit"
+      type="text"
+      placeholder="discrit"
+      [(ngModel)]="student.district"
+    />
+  </div>
+</form>
+<div>
+  <h1 class="pt-[20px]">{{ formInput.value | json }}</h1>
+</div>
+
+<div>
+  <h1 class="pt-[20px]">{{ student | json }}</h1>
+</div>
+
+<!-- check validation on input have valid invalid dirty prestince touch and unTouch -->
+<div class="bg-green-400">validation</div>
+
+<form action="" #formControl="ngForm" class="pt-[20px]">
+  <input
+    type="text"
+    placeholder="input data"
+    name="message"
+    class="bg-[#f5f5f5] rounded-sm"
+    [(ngModel)]="message"
+    #txtName="ngModel"
+    required
+    [ngClass]="txtName.touched && txtName.invalid ? 'border-red-500  border' : 'border-gray-200'"
+  />
+  @if (txtName.touched && txtName.invalid) {
+    <label class="text-red-500">this field cannot be empty</label>
+  }
+  <button>save</button>
+  <!-- <h1>ClassTxt: {{ txtName.className }}</h1> -->
+  <h1>message: {{ message }}</h1>
+</form>

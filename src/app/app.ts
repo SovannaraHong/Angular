@@ -8,11 +8,12 @@ import { Navbar } from './routing/navbar/navbar';
 import { Footer } from './routing/footer/footer';
 import { Employee } from './employeeDashBoard/employee/employee';
 import { NavbarEmployee } from './employeeDashBoard/navbar-employee/navbar-employee';
+import { FormInput } from './Form/form-input/form-input';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule, RouterOutlet, NavbarEmployee],
+  imports: [InputOutput, FormsModule, FormInput],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
