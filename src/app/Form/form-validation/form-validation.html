@@ -1,0 +1,186 @@
+<div>
+  <h1 class="text-center font-bold uppercase bg-gray-300 py-[20px]">Validation input form</h1>
+</div>
+
+<form class="px-[20px] py-[20px] grid grid-cols-2 gap-4" #formValidation="ngForm">
+  <div class="mb-6">
+    <label for="success" class="block mb-2.5 text-sm font-medium text-fg-success-strong"
+      >name</label
+    >
+    <input
+      type="text"
+      id="success"
+      name="txtName"
+      required
+      #txtName="ngModel"
+      class="text-sm border border-gray-400 rounded-lg focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-success-strong"
+      placeholder="Success input"
+      pattern="^[A-Za-z0-9 ]{4,}$"
+      [(ngModel)]="student.name"
+      [ngClass]="txtName.touched && txtName.invalid ? 'border-red-500  border' : 'border-gray-200'"
+    />
+    @if (txtName.touched && txtName.invalid) {
+      @if (txtName.errors?.['required']) {
+        <p class="mt-2 text-sm text-red-500">Name is required</p>
+      }
+      @if (txtName.errors?.['pattern']) {
+        <p class="mt-2 text-sm text-red-500">Name must be at least 4 characters</p>
+      }
+    }
+  </div>
+  <div class="mb-6">
+    <label for="success" class="block mb-2.5 text-sm font-medium text-fg-success-strong"
+      >phone</label
+    >
+    <input
+      name="txtPhone"
+      type="text"
+      id="success"
+      class="text-sm border border-gray-400 rounded-lg focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-success-strong"
+      placeholder="Success input"
+      [(ngModel)]="student.phone"
+    />
+  </div>
+  <div class="mb-6">
+    <label for="success" class="block mb-2.5 text-sm font-medium text-fg-success-strong"
+      >email</label
+    >
+    <input
+      type="text"
+      name="txtEmail"
+      id="success"
+      class="text-sm border border-gray-400 rounded-lg focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-success-strong"
+      placeholder="Success input"
+      required
+      [(ngModel)]="student.email"
+    />
+  </div>
+
+  <div class="mb-6">
+    <label for="success" class="block mb-2.5 text-sm font-medium text-fg-success-strong"
+      >province</label
+    >
+    <input
+      name="txtProvince"
+      type="text"
+      id="success"
+      class="text-sm border border-gray-400 rounded-lg focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-success-strong"
+      placeholder="Success input"
+      [(ngModel)]="student.province"
+    />
+  </div>
+  <div class="mb-6">
+    <label for="success" class="block mb-2.5 text-sm font-medium text-fg-success-strong"
+      >district</label
+    >
+    <input
+      type="text"
+      name="txtDistrict"
+      id="success"
+      class="text-sm border border-gray-400 rounded-lg focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-success-strong"
+      placeholder="Success input"
+      [(ngModel)]="student.district"
+    />
+  </div>
+  <div>
+    <label for="countries" class="block mb-2.5 text-sm font-medium text-heading">Gender</label>
+    <input
+      type="radio"
+      checked
+      name="gender"
+      value="Male"
+      #txtGender="ngModel"
+      [(ngModel)]="student.gender"
+      class="text-sm border border-gray-400 rounded-lg"
+    />Male
+    <input
+      type="radio"
+      name="gender"
+      value="Female"
+      #txtGender="ngModel"
+      [(ngModel)]="student.gender"
+      class="text-sm border border-gray-400 rounded-lg"
+    />Female
+  </div>
+  <select
+    name="language"
+    [(ngModel)]="student.language"
+    #cboLanguage="ngModel"
+    required
+    class="text-sm border border-gray-400 rounded-lg focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs"
+  >
+    <option value="" disabled selected>Select a language</option>
+    <option value="JAVA">JAVA</option>
+    <option value="PHP">PHP</option>
+    <option value="C#">C#</option>
+    <option value="C++">C++</option>
+  </select>
+  @if (cboLanguage.touched && cboLanguage.invalid) {
+    <p class="text-red-500 text-sm">Please select a language</p>
+  }
+  <button
+    class="bg-green-400 px-4 py-2 rounded"
+    [disabled]="formValidation.invalid"
+    [ngClass]="formValidation.invalid ? 'opacity-[0.5] cursor-not-allowed' : 'cursor-pointer'"
+  >
+    Save
+  </button>
+</form>
+
+<div
+  class="relative mt-[20px] overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default"
+>
+  <table class="w-full text-sm text-left rtl:text-right text-body">
+    <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+      <tr>
+        <th scope="col" class="px-6 py-3 font-medium">name</th>
+        <th scope="col" class="px-6 py-3 font-medium">phone</th>
+
+        <th scope="col" class="px-6 py-3 font-medium">email</th>
+        <th scope="col" class="px-6 py-3 font-medium">province</th>
+        <th scope="col" class="px-6 py-3 font-medium">district</th>
+        <th scope="col" class="px-6 py-3 font-medium">gender</th>
+        <th scope="col" class="px-6 py-3 font-medium">language</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-neutral-primary border-b border-default">
+        <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+          {{ student.name }}
+        </th>
+        <td class="px-6 py-4">{{ student.phone }}</td>
+        <td class="px-6 py-4">{{ student.email }}</td>
+        <td class="px-6 py-4">{{ student.province }}</td>
+        <td class="px-6 py-4">{{ student.district }}</td>
+        <td class="px-6 py-4">{{ student.gender }}</td>
+        <td class="px-6 py-4">{{ student.language }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div class="pt-[29px]">
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+      <thead
+        class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3 font-medium">id</th>
+          <th scope="col" class="px-6 py-3 font-medium">name</th>
+          <th scope="col" class="px-6 py-3 font-medium">country</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (brands$ | async; as brands) {
+          @for (brand of brands; track $index) {
+            <tr class="bg-neutral-primary border-b border-default">
+              <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+                {{ brand.id }}
+              </th>
+              <td class="px-6 py-4">{{ brand.name }}</td>
+              <td class="px-6 py-4">{{ brand.country }}</td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div> -->
+</div>

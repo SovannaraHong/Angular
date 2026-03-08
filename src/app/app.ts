@@ -2,18 +2,13 @@ import { Component, signal } from '@angular/core';
 
 import { InputOutput } from './input-output/input-output';
 import { FormsModule } from '@angular/forms';
-import { Fetching } from './fetching/fetching';
-import { RouterOutlet } from '@angular/router';
-import { Navbar } from './routing/navbar/navbar';
-import { Footer } from './routing/footer/footer';
-import { Employee } from './employeeDashBoard/employee/employee';
-import { NavbarEmployee } from './employeeDashBoard/navbar-employee/navbar-employee';
-import { FormInput } from './Form/form-input/form-input';
+
+import { FormValidation } from './Form/form-validation/form-validation';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule, FormInput],
+  imports: [InputOutput, FormsModule, FormValidation],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

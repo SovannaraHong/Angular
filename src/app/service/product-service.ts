@@ -12,9 +12,19 @@ export interface ProductType {
   category: string;
   thumbnail: string;
 }
-
 export interface ProductResponse {
   products: ProductType[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+export interface brandType {
+  id: number;
+  name: string;
+  country: string;
+}
+export interface brandResponse {
+  brands: brandType[];
   total: number;
   skip: number;
   limit: number;
@@ -30,5 +40,11 @@ export class ProductService {
   }
   getProductById(id: number): Observable<ProductType> {
     return this.http.get<ProductType>(`${this.url}/${id}`);
+  }
+
+  getBrands(): Observable<brandType[]> {
+    return this.http
+      .get<{ brandList: brandType[]; paginationDTO: any }>('http://localhost:8080/brands')
+      .pipe(map((res) => res.brandList)); // <-- use res.list
   }
 }
