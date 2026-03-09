@@ -44,7 +44,7 @@ export class ProductService {
 
   getBrands(): Observable<brandType[]> {
     return this.http
-      .get<{ brandList: brandType[]; paginationDTO: any }>('http://localhost:8080/brands')
-      .pipe(map((res) => res.brandList)); // <-- use res.list
+      .get<{ list: brandType[]; paginationDTO: any }>('http://localhost:8080/brands')
+      .pipe(map((res) => res.list)); // <-- use res.list
   }
 }

@@ -4,11 +4,12 @@ import { InputOutput } from './input-output/input-output';
 import { FormsModule } from '@angular/forms';
 
 import { FormValidation } from './Form/form-validation/form-validation';
+import { ReactiveForm } from './Form/reactive-form/reactive-form';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule, FormValidation],
+  imports: [InputOutput, FormsModule, ReactiveForm],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

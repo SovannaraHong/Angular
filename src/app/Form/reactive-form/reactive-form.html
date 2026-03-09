@@ -1,0 +1,98 @@
+<div>
+  <h1 class="bg-blue-300 text-center py-[20px] uppercase font-bold shadow-lg">Reactive form</h1>
+</div>
+
+<form class="px-[20px] py-[20px]" [formGroup]="registrationForm">
+  <div>
+    <label class="block mb-2 text-sm font-medium text-gray-700"> username </label>
+    <input
+      formControlName="username"
+      type="text"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-2 shadow-sm placeholder-gray-400"
+      placeholder="Enter text..."
+      required
+      [ngClass]="
+        username?.touched && username?.invalid ? 'border-red-500  border' : 'border-gray-200'
+      "
+    />
+  </div>
+  @if (registrationForm.touched && registrationForm.invalid) {
+    @if (username?.errors?.['required']) {
+      <div class="text-red-400">username must be required</div>
+    }
+    @if (username?.errors?.['minlength']) {
+      <div class="text-red-400">username must be at least 4 characters</div>
+    }
+    @if (username?.errors?.['forbiddenName']) {
+      <div class="text-red-400">
+        username {{ username?.errors?.['forbiddenName'] }} is forbidden
+      </div>
+    }
+  }
+  <div>
+    <label for="visitors2" class="block mb-2 text-sm font-medium text-gray-700"> password </label>
+    <input
+      formControlName="password"
+      type="password"
+      id="visitors2"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-2.5 shadow-sm placeholder-gray-400"
+      placeholder="Enter text..."
+      required
+    />
+  </div>
+  <div>
+    <label for="visitors2" class="block mb-2 text-sm font-medium text-gray-700">
+      confirm password
+    </label>
+    <input
+      formControlName="confirmPassword"
+      type="password"
+      id="visitors2"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-2.5 shadow-sm placeholder-gray-400"
+      placeholder="Enter text..."
+      required
+    />
+  </div>
+
+  <div formGroupName="address">
+    <div>
+      <label for="visitors3" class="block mb-2 text-sm font-medium text-gray-700"> province </label>
+      <input
+        formControlName="province"
+        type="text"
+        id="visitors3"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3.5 py-3 shadow-sm placeholder-gray-400"
+        placeholder="Enter text..."
+        required
+      />
+    </div>
+
+    <div>
+      <label for="visitors4" class="block mb-2 text-sm font-medium text-gray-700"> district </label>
+      <input
+        formControlName="district"
+        type="text"
+        id="visitors4"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-4 py-3.5 shadow-sm placeholder-gray-400"
+        placeholder="Enter text..."
+        required
+      />
+    </div>
+    <div>
+      <label for="visitors4" class="block mb-2 text-sm font-medium text-gray-700"> commune </label>
+      <input
+        formControlName="commune"
+        type="text"
+        id="visitors4"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-4 py-3.5 shadow-sm placeholder-gray-400"
+        placeholder="Enter text..."
+        required
+      />
+    </div>
+  </div>
+  <button (click)="save()" class="border cursor-pointer bg-green-400">save</button>
+</form>
+
+<div>
+  <h1 class="pt-[20px]">data: {{ registrationForm.value | json }}</h1>
+</div>
