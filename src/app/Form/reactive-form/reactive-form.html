@@ -23,9 +23,9 @@
     @if (username?.errors?.['minlength']) {
       <div class="text-red-400">username must be at least 4 characters</div>
     }
-    @if (username?.errors?.['forbiddenName']) {
+    @if (username?.errors?.['foundingWord']) {
       <div class="text-red-400">
-        username {{ username?.errors?.['forbiddenName'] }} is forbidden
+        username {{ username?.errors?.['foundingWord'].word }} is forbidden
       </div>
     }
   }
