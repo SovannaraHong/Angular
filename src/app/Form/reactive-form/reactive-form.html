@@ -16,7 +16,7 @@
       "
     />
   </div>
-  @if (registrationForm.touched && registrationForm.invalid) {
+  @if (username?.touched && username?.invalid) {
     @if (username?.errors?.['required']) {
       <div class="text-red-400">username must be required</div>
     }
@@ -35,6 +35,11 @@
       formControlName="password"
       type="password"
       id="visitors2"
+      [ngClass]="
+        registrationForm.errors?.['misMatch'] && confirmPassword?.touched
+          ? 'border border-red-500'
+          : ''
+      "
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-2.5 shadow-sm placeholder-gray-400"
       placeholder="Enter text..."
       required
@@ -48,10 +53,75 @@
       formControlName="confirmPassword"
       type="password"
       id="visitors2"
+      [ngClass]="
+        registrationForm.errors?.['misMatch'] && confirmPassword?.touched
+          ? 'border border-red-500'
+          : ''
+      "
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-2.5 shadow-sm placeholder-gray-400"
       placeholder="Enter text..."
       required
     />
+  </div>
+  @if (registrationForm.errors?.['misMatch'] && confirmPassword?.touched) {
+    <p class="text-red-500">passwordMisMatch</p>
+  }
+  <div>
+    <label for="visitors3" class="block mb-2 text-sm font-medium text-gray-700"> email </label>
+    <input
+      formControlName="email"
+      type="text"
+      id="visitors3"
+      [ngClass]="getEmail?.errors?.['required'] ? 'border border-red-500' : ''"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3.5 py-3 shadow-sm placeholder-gray-400"
+      placeholder="Enter text..."
+    />
+  </div>
+  <div class="pt-[20px]">
+    <input
+      formControlName="subscribe"
+      id="checked-checkbox"
+      type="checkbox"
+      class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
+    />
+    <label for="checked-checkbox" class="select-none ms-2 text-sm font-medium text-heading"
+      >subscript</label
+    >
+  </div>
+  <div>
+    <label for="visitors3" class="block mb-2 text-sm font-medium text-gray-700"> phone </label>
+    <input
+      formControlName="phone"
+      type="text"
+      id="visitors3"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3.5 py-3 shadow-sm placeholder-gray-400"
+      placeholder="add number phone"
+    />
+    <div formArrayName="alternativePhone">
+      @for (phone of alternativePhone.controls; track $index; let i = $index) {
+        <input
+          [formControlName]="i"
+          type="text"
+          id="visitors3"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3.5 py-3 shadow-sm placeholder-gray-400"
+          placeholder="add number phone"
+        />
+
+        <button
+          class="bg-red-300 px-3.5 py-3 rounded-[5px] cursor-pointer"
+          (click)="removePhone(i)"
+        >
+          remove phone
+        </button>
+      }
+    </div>
+
+    <button
+      (click)="addPhone()"
+      class="bg-blue-300 mt-[10px] px-[7px] py-[5px] rounded-[5px] cursor-pointer"
+    >
+      add Phone
+    </button>
   </div>
 
   <div formGroupName="address">
@@ -90,7 +160,16 @@
       />
     </div>
   </div>
-  <button (click)="save()" class="border cursor-pointer bg-green-400">save</button>
+  <div class="pt-[20px]">
+    <button
+      (click)="save()"
+      [disabled]="registrationForm.invalid"
+      [ngClass]="registrationForm.invalid ? 'cursor-not-allowed opacity-[0.5]' : 'cursor-pointer'"
+      class="border bg-green-400 px-[10px] py-[10px] rounded-lg"
+    >
+      save
+    </button>
+  </div>
 </form>
 
 <div>

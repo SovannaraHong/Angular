@@ -1,5 +1,6 @@
 import { ValueEqualityFn } from '@angular/core';
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { ValidationError } from '@angular/forms/signals';
 
 // export function usernameValidate(control: AbstractControl): { [key: string]: any } | null {
 //   const forbidden = /admin/.test(control.value);
@@ -21,4 +22,12 @@ export function forbiddenWordValidate(pattern: string[]): ValidatorFn {
     const foundWord = pattern.find((word) => value.includes(word.toLowerCase()));
     return foundWord ? { foundingWord: { word: foundWord } } : null;
   };
+}
+export function passwordValidate(control: AbstractControl): ValidationErrors | null {
+  const pwd = control.get('password')?.value;
+  const cPwd = control.get('confirmPassword')?.value;
+  if (pwd != cPwd) {
+    return { misMatch: true };
+  }
+  return null;
 }
