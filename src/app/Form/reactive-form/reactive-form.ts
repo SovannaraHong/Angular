@@ -53,8 +53,9 @@ export class ReactiveForm implements OnInit {
   addPhone() {
     this.alternativePhone.push(this.fb.control(''));
   }
-  removePhone(index: number) {
-    this.alternativePhone.removeAt(index);
+
+  removePhone(id: number) {
+    this.alternativePhone.removeAt(id);
   }
 
   save() {

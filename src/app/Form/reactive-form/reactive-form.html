@@ -102,27 +102,26 @@
         <input
           [formControlName]="i"
           type="text"
-          id="visitors3"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3.5 py-3 shadow-sm placeholder-gray-400"
           placeholder="add number phone"
         />
-
         <button
-          class="bg-red-300 px-3.5 py-3 rounded-[5px] cursor-pointer"
           (click)="removePhone(i)"
+          type="button"
+          class="bg-red-300 px-3.5 py-3 rounded-[5px] cursor-pointer"
         >
           remove phone
         </button>
       }
     </div>
-
-    <button
-      (click)="addPhone()"
-      class="bg-blue-300 mt-[10px] px-[7px] py-[5px] rounded-[5px] cursor-pointer"
-    >
-      add Phone
-    </button>
   </div>
+
+  <button
+    (click)="addPhone()"
+    class="bg-blue-300 mt-[10px] px-[7px] py-[5px] rounded-[5px] cursor-pointer"
+  >
+    add Phone
+  </button>
 
   <div formGroupName="address">
     <div>
