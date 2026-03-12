@@ -1,0 +1,70 @@
+<h1 class="text-center bg-blue-400">Using Custom Directive</h1>
+
+<div>
+  <h1>Default Provide by angular</h1>
+  <div class="flex justify-center items-center py-[20px]">
+    <button
+      #btn
+      (mouseover)="hColor(btn)"
+      (mouseleave)="lColor(btn)"
+      class="px-[20px] py-[20px] border"
+    ></button>
+  </div>
+</div>
+
+<div class="flex justify-center items-center">
+  <button appDirectiveDT showText="yellow" class="border px-[20px] py-[20px] bg-pink-200">
+    I love you
+  </button>
+
+  <button appDirectiveDT showText="yellow" class="border px-[20px] py-[20px] bg-pink-200">
+    Text
+  </button>
+</div>
+<h1 class="text-center py-[29px] mt-[29px] bg-blue-400">Using Custom DirectiveV2</h1>
+<button
+  (click)="showText()"
+  class="rounded-[10px] px-[20px] py-[20px] mt-[10px] bg-green-400 font-bold cursor-pointer"
+>
+  Hello
+</button>
+@if (show) {
+  <h1>Welcome to setec institute</h1>
+}
+<p *myIf="isVisible">Lorem ipsum dolor sit.</p>
+<img class="w-[100px]" [src]="imgPath" alt="" />
+
+<h1 class="text-center bg-blue-400">Using Custom Directive Input</h1>
+
+<div>
+  <input type="text" [(ngModel)]="text" placeholder="Emter message" class="border" />
+  <h1>
+    Message:
+    {{ text }}
+  </h1>
+</div>
+
+<div>
+  <!-- <input
+    type="text"
+    [ngModel]="username"
+    (ngModelChange)="username = $event"
+    placeholder="Emter message"
+    class="border"
+  /> -->
+  <input
+    #facus
+    type="text"
+    [ngModel]="username"
+    (ngModelChange)="doCheckName($event)"
+    placeholder="Emter message"
+    class="border"
+  />
+  <h1>
+    Message:
+    {{ username }}
+  </h1>
+</div>
+<button (click)="checkLogin = true">login</button
+><button (click)="checkLogin = false">logout</button>
+<app-home [logIn]="checkLogin"></app-home>

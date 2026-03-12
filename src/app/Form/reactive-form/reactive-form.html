@@ -98,21 +98,7 @@
       placeholder="add number phone"
     />
     <div formArrayName="alternativePhone">
-      @for (phone of alternativePhone.controls; track $index; let i = $index) {
-        <input
-          [formControlName]="i"
-          type="text"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full px-3.5 py-3 shadow-sm placeholder-gray-400"
-          placeholder="add number phone"
-        />
-        <button
-          (click)="removePhone(i)"
-          type="button"
-          class="bg-red-300 px-3.5 py-3 rounded-[5px] cursor-pointer"
-        >
-          remove phone
-        </button>
-      }
+      @for (phone of alternativePhone.controls; track $index; let i = $index) {}
     </div>
   </div>
 

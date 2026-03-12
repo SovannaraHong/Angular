@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 
 import { FormValidation } from './Form/form-validation/form-validation';
 import { ReactiveForm } from './Form/reactive-form/reactive-form';
+import { Directive } from './DirectiveComponent/directive/directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule, ReactiveForm],
+  imports: [InputOutput, FormsModule, Directive],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
