@@ -1,0 +1,8 @@
+<div>
+  <h1 class="text-center bg-blue-400 py-[20px]">Biding Parent</h1>
+</div>
+<h1>
+  mesaage
+  {{ text }}
+</h1>
+<app-child (sendBack)="reciveText($event)" [Message]="message"></app-child>

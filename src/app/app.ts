@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { FormValidation } from './Form/form-validation/form-validation';
 import { ReactiveForm } from './Form/reactive-form/reactive-form';
 import { Directive } from './DirectiveComponent/directive/directive';
+import { Parent } from './ComponentInteraction/parent/parent';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InputOutput, FormsModule, Directive],
+  imports: [InputOutput, FormsModule, Parent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
